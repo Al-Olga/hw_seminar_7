@@ -14,8 +14,8 @@ int[] FindElement(int[,] array, int element, int strok, int stolb, int flag)
     ObnulArrayFind(array_find);
     if (flag==0) stolb=0; // если это первый "проход", то принудительно на нулевой индекс столбца
     for (int i=strok; i<array.GetLength(0); i++) // поиск начинаем с индекса строки найденного элемента
-    {
-        for (int j=stolb; j<array.GetLength(1); j++) // поиск начинаем со следующего индекса столбца найденного элемента
+    {   // поиск начинаем со следующего индекса столбца найденного элемента
+        for (int j=stolb; j<array.GetLength(1); j++) 
             if (array[i,j]==element)
             {
                 array_find[0]=i; // сохраняем позицию в строке
