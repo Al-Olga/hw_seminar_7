@@ -1,17 +1,14 @@
 ﻿// Дан целочисленный массив. 
 // Найти среднее арифметическое каждого из столбцов.
 
-void SumStolbArray (int[,] array)
+float SredneeArifmStolbArray (int[,] array, int j)
 {
-    float sum;
-    for (int j=0; j<array.GetLength(1); j++)
-    {
-        sum=0;
-        for (int i=0; i<array.GetLength(0); i++)
-            sum=sum+array[i,j];
-        Console.WriteLine($"Сумма элементов столбца({j+1})= {sum}");
-        Console.WriteLine("Среднее арифметическое = {0:F2}", sum/array.GetLength(1));
-    }
+    float sum=0;
+    float sr_arif=0;
+    for (int i=0; i<array.GetLength(0); i++)
+        sum=sum+array[i,j];
+    sr_arif=sum/array.GetLength(0);   
+    return sr_arif;
 }
 
 void EnterArray (int[,] array, int min, int max)
@@ -46,4 +43,7 @@ int[,] array = new int[m,n];
 EnterArray(array, min, max); // заполняем массив элементами
 Console.WriteLine("Введенный массив:");
 PrintArray(array);
-SumStolbArray(array);
+
+for (int j=0; j<array.GetLength(1); j++)
+    Console.WriteLine("Среднее арифметическое столбца {0} = {1:F2}", 
+    j+1, SredneeArifmStolbArray(array, j));      
